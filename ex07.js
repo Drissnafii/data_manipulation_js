@@ -761,10 +761,9 @@ const employees = [
 
 function getHighestPaidEmployee(arr) { // [-2, -3, -4, -6]
     // let min = arr[0];
-    let max = arr[0];
+    let max = arr[0].salary;
         for (let i = 0; i < arr.length; i++) {
-            const element = arr[i];
-            if(element.age > max) max = element;
+            if(arr[i].salary > max) max = arr[i];
         }
     return max;
 }
