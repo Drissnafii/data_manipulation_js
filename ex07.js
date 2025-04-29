@@ -765,16 +765,16 @@ const employees = [
 function getHighestPaidEmployee(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i; j < arr.length; j++) {
-      console.log(arr[j])
-      if(arr[i] > arr[j]) {
-        const res = arr[j];
-        arr[j] = arr[i];
-        arr[i] = res
+      if(arr[i].salary > arr[j].salary) {
+        const res = arr[j].salary;
+        arr[j].salary = arr[i].salary;
+        arr[i].salary = res;
       }
     }
   }
-  return arr
+
+  return arr[arr.length-1];
 };
 
-const minToMax = getHighestPaidEmployee(tableau);
+const minToMax = getHighestPaidEmployee(employees);
 console.log(minToMax);
