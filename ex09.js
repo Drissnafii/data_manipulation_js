@@ -751,24 +751,13 @@ const employees = [
     }
   ];
 
-//   Count how many employees are in the "Développement" department
+// List all unique department names
 
-// Function Name: countEmployeesInDepartment
-// Input: employees, "Développement"
-// Output: 15
-// Expected Result: Returns the number of employees in the "Développement" department.
+// Function Name: getUniqueDepartments
+// Input: employees
+// Output: ["Développement", "Design", "Management", "Marketing"]
+// Expected Result: Returns an array of unique department names.
 
-function countEmployeesInDepartment(arr, depa) {
-    const devArr = [];
-    let count = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].department === depa) {
-            devArr.push(arr[i]);
-            count++;
-        }
-    }
-    return infos = [devArr, count];
+function getUniqueDepartments(arr) {
+    
 }
-depa = "Design";
-const devv = countEmployeesInDepartment(employees, depa);
-console.log(devv);
