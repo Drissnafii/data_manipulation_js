@@ -752,21 +752,29 @@ const employees = [
   ];
 
 
-// Find the employee with the highest salary
+  // Find the employee with the highest salary
 
-// Function Name: getHighestPaidEmployee
-// Input: employees
-// Output: { id: 34, firstName: "Paul", lastName: "Leclercq", ... }
-// Expected Result: Returns the employee object with the highest salary.
+  let tableau = [12, -4, 7, 0, 25, -15, 3, 9, -8, 1];
 
-function getHighestPaidEmployee(arr) { // [-2, -3, -4, -6]
-    // let min = arr[0];
-    let max = arr[0].salary;
-        for (let i = 0; i < arr.length; i++) {
-            if(arr[i].salary > max) max = arr[i];
-        }
-    return max;
-}
 
-const maxx = getHighestPaidEmployee(employees);
-console.log(maxx);
+  // Function Name: getHighestPaidEmployee
+  // Input: employees
+  // Output: { id: 34, firstName: "Paul", lastName: "Leclercq", ... }
+  // Expected Result: Returns the employee object with the highest salary.
+
+function getHighestPaidEmployee(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i; j < arr.length; j++) {
+      console.log(arr[j])
+      if(arr[i] > arr[j]) {
+        const res = arr[j];
+        arr[j] = arr[i];
+        arr[i] = res
+      }
+    }
+  }
+  return arr
+};
+
+const minToMax = getHighestPaidEmployee(tableau);
+console.log(minToMax);
