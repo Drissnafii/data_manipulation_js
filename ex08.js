@@ -760,6 +760,7 @@ const employees = [
 
 function countEmployeesInDepartment(arr, depa) {
     const devArr = [];
+    
     let count = 0;
     for (let i = 0; i < arr.length; i++) {
         if (arr[i].department === depa) {
@@ -767,8 +768,10 @@ function countEmployeesInDepartment(arr, depa) {
             count++;
         }
     }
-    return infos = [devArr, count];
+    return infos = {devArr, count};
 }
 depa = "Design";
 const devv = countEmployeesInDepartment(employees, depa);
 console.log(devv);
+
+// trying to get design => [...., ..., .. , ...], dev => [.., ..., ...]
