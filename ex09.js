@@ -759,5 +759,5 @@ const employees = [
 // Expected Result: Returns an array of unique department names.
 
 function getUniqueDepartments(arr) {
-    
+                                           
 }
