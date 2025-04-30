@@ -129,7 +129,7 @@ class Cart {
 }
 
 // Create user
-$user = new User("Driss", "Drissnafi3@gmail.com");
+$user = new User("Rachid", "rachid@gmail.com");
 
 // Create products
 $product01 = new Product("IP13P", "iPhone 13 Pro", 999.99);
@@ -144,12 +144,14 @@ $product07 = new Product("AMZECHO", "Amazon Echo Dot", 49.99);
 $order = new Order($user);
 $order->addProduct($product01);
 $order->addProduct($product02);
+$order->addProduct($product06);
 $user->addOrder($order);
 
 // Create cart for user
 $cart = new Cart($user);
 $cart->addProduct($product03);
 $cart->addProduct($product04);
+$cart->addProduct($product07);
 
 // Print some information
 echo "User: " . $user->getName() . "\n";
