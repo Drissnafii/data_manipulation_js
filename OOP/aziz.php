@@ -64,6 +64,7 @@ class User {
     private string $email;
     private array $orders = [];
     private array $products = [];
+    private Cart $cart; 
 
     public function __construct(string $name, string $email) {
         $this->name = $name;
@@ -88,6 +89,10 @@ class User {
     
     public function getOrders(): array {
         return $this->orders;
+    }
+
+    public function __get($param) {
+        echo $param;
     }
     
     public function getTotalProductPrice(): float {
