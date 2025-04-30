@@ -24,6 +24,16 @@ class Product {
     }
 }
 
+trait TotalPrice {
+    public function calculateTotalPrice(array $products): float {
+        $total = 0;
+        foreach ($products as $product) {
+            $total += $product->getPrice();
+        }
+        return $total;
+    }
+}
+
 class Order {
     private User $user;
     private array $products = [];
@@ -122,13 +132,13 @@ class Cart {
 $user = new User("Driss", "Drissnafi3@gmail.com");
 
 // Create products
-$product01 = new Product("1119", "Iphone 13 Pro", 6000);
-$product02 = new Product("3242", "Laptop", 4000);
-$product03 = new Product("3442", "Phone", 4080);
-$product04 = new Product("9742", "Samsung", 4200);
-$product05 = new Product("0872", "GWT", 1000);
-$product06 = new Product("3222", "BMW", 1200);
-$product07 = new Product("320l2", "OOO", 900);
+$product01 = new Product("IP13P", "iPhone 13 Pro", 999.99);
+$product02 = new Product("MBPM1", "MacBook Pro M1", 1299.99);
+$product03 = new Product("SGS21", "Samsung Galaxy S21", 799.99);
+$product04 = new Product("SGTV55", "Samsung 55\" 4K Smart TV", 649.99);
+$product05 = new Product("SONYXM4", "Sony WH-1000XM4 Headphones", 349.99);
+$product06 = new Product("NINTNS", "Nintendo Switch", 299.99);
+$product07 = new Product("AMZECHO", "Amazon Echo Dot", 49.99);
 
 // Create order and add it to user
 $order = new Order($user);
