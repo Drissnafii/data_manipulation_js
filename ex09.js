@@ -759,5 +759,15 @@ const employees = [
 // Expected Result: Returns an array of unique department names.
 
 function getUniqueDepartments(arr) {
-                                           
+    const Uniques = [];
+    for (let i = 0; i < arr.length; i++) {
+      let dep = arr[i].department;
+      if (!Uniques.includes(dep)) {
+        Uniques.push(dep);
+      } 
+    }
+  return Uniques;
 }
+
+const uniii = getUniqueDepartments(employees);
+console.log(uniii);
