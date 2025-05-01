@@ -757,3 +757,19 @@ const employees = [
   // Input: employees, 'L'
   // Output: [ { id: 5, lastName: "Leroux", ... }, { id: 8, lastName: "Laurent", ... }, ... ]
   // Expected Result: Returns an array of employees whose last name starts with 'L'.
+
+  function getEmployeesByLastNameInitial(arr, fristLetter) {
+    const Who_stars_with = [];
+    
+    for (let i = 0; i < arr.length; i++) {
+      let lastName = arr[i].lastName;
+      if (lastName[0] === fristLetter) {
+        Who_stars_with.push(arr[i]);
+      }
+    }
+    
+    return Who_stars_with;
+  }
+
+  const A = getEmployeesByLastNameInitial(employees, "L");
+  console.log(A);

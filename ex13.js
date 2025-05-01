@@ -770,4 +770,4 @@ function getEmployeesWithMoreThanTwoSkills(arr) {
 }
 
 const x = getEmployeesWithMoreThanTwoSkills(employees);
-console.log(x.length);
+console.log(x);
