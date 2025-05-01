@@ -782,7 +782,6 @@ function objects_in_same_deparetement(arr, depaa) {
 }
 
 function calculateAverageSalaryByDepartment(arr) {
-    let avg_salary_by_depa = [];
     let u;
     let salarr = 0;
     let avg;
@@ -791,36 +790,17 @@ function calculateAverageSalaryByDepartment(arr) {
   const departments = uniqueDeparetement(arr);
   for (let i = 0; i < departments.length; i++) {
     u = objects_in_same_deparetement(arr, departments[i]);
+    salarr = 0; // Reset sum for each department
     for (let j = 0; j < u.length; j++) {
       salarr += u[j].salary;
     }
     avg = salarr / u.length;
-    console.log("____________________________");
-    console.log(departments[i]);
-    console.log(avg);
-  }
+    console.log("\n" + "=".repeat(40));
+    console.log(`Department: ${departments[i]}`);
+    console.log("-".repeat(40));
+    console.log(`Average salary: ${avg.toLocaleString('fr-FR')} €`);
+    }
 
 }
 
 calculateAverageSalaryByDepartment(employees);
-
-
-
-
-
-
-
-
-
-
-
-  
-// for (let i = 0; i < arr.length; i++) {
-//   let S = arr[i].salary;
-
-//     for (let j = 0; j < departments.length; j++) {
-//       if (departments[i] === departments[j]) {
-        
-//       }
-//     }
-//   }
