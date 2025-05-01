@@ -760,22 +760,19 @@ const employees = [
 // Expected Result: Returns the number of employees who speak English.
 
 function countEnglishSpeakingEmployees(arr) {
-    let speakEnglisch = [];
-    let not_eng = [];
-    for (let i = 0; i < arr.length; i++) {
-        let y = arr[i].languages;
-        for (let j = 0; j < y.length; j++) {
-            if (y[j] === "English") {
-                speakEnglisch.push(arr[i]);
-            } else {
-                not_eng.push(arr[i]);
-            }
-        }
-        
-    }
-    return speakEnglisch;
+  let speakEnglisch = [];
+  for (let i = 0; i < arr.length; i++) {
+      let y = arr[i].languages;
+      for (let j = 0; j < y.length; j++) {
+          if (y[j] === "English") {
+              speakEnglisch.push(arr[i]);
+              break;
+          }
+      }
+  }
+  return speakEnglisch;
 }
 
+
 const who_speak_eng = countEnglishSpeakingEmployees(employees);
-console.log("Total of employees : " + employees.length);
-console.log("Total of who speaking englich : " + who_speak_eng.length + not_eng.length);
+console.log(who_speak_eng.length);
