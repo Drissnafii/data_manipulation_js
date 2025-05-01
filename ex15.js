@@ -758,49 +758,46 @@ const employees = [
   // Output: { "Développement": 60000, "Design": 50000, ... }
   // Expected Result: Returns an object with average salaries for each department.
 
-function uniqueDeparetement(arr) {
-  const uniques = [];
-
-  for (let i = 0; i < arr.length; i++) {
-    if(!uniques.includes(arr[i].department)) {
-        uniques.push(arr[i].department);
+  function getUniqueDepartments(arr) {
+    const uniqueDepartments = [];
+  
+    for (let i = 0; i < arr.length; i++) {
+      if (!uniqueDepartments.includes(arr[i].department)) {
+        uniqueDepartments.push(arr[i].department);
+      }
+    }
+  
+    return uniqueDepartments;
+  }
+  
+  function getEmployeesByDepartment(arr, departmentName) {
+    const employeesInDept = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].department === departmentName) {
+        employeesInDept.push(arr[i]);
+      }
+    }
+  
+    return employeesInDept;
+  }
+  
+  function calculateAverageSalaryByDepartment(arr) {
+    const departments = getUniqueDepartments(arr);
+  
+    for (let i = 0; i < departments.length; i++) {
+      const employeesInDept = getEmployeesByDepartment(arr, departments[i]);
+      let salarySum = 0;
+  
+      for (let j = 0; j < employeesInDept.length; j++) {
+        salarySum += employeesInDept[j].salary;
+      }
+  
+      const average = salarySum / employeesInDept.length;
+  
+      console.log("\n" + "=".repeat(40));
+      console.log(`Département : ${departments[i]}`);
+      console.log("-".repeat(40));
+      console.log(`Salaire moyen : ${average.toLocaleString('fr-FR')} €`);
     }
   }
-
-  return uniques;
-}
-
-function objects_in_same_deparetement(arr, depaa) {
-  let same_depa = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].department === depaa) {
-      same_depa.push(arr[i]);
-    }
-  }
-
-  return same_depa;
-}
-
-function calculateAverageSalaryByDepartment(arr) {
-    let u;
-    let salarr = 0;
-    let avg;
-
-
-  const departments = uniqueDeparetement(arr);
-  for (let i = 0; i < departments.length; i++) {
-    u = objects_in_same_deparetement(arr, departments[i]);
-    salarr = 0; // Reset sum for each department
-    for (let j = 0; j < u.length; j++) {
-      salarr += u[j].salary;
-    }
-    avg = salarr / u.length;
-    console.log("\n" + "=".repeat(40));
-    console.log(`Department: ${departments[i]}`);
-    console.log("-".repeat(40));
-    console.log(`Average salary: ${avg.toLocaleString('fr-FR')} €`);
-    }
-
-}
-
-calculateAverageSalaryByDepartment(employees);
+  
