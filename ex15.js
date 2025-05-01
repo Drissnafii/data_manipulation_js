@@ -801,3 +801,4 @@ const employees = [
     }
   }
   
+calculateAverageSalaryByDepartment(employees);
