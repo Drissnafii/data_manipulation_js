@@ -751,55 +751,26 @@ const employees = [
     }
   ];
 
-  //   Calculate the average salary per department
+//   Find employees who joined after 2020
 
-  // Function Name: calculateAverageSalaryByDepartment
-  // Input: employees
-  // Output: { "Développement": 60000, "Design": 50000, ... }
-  // Expected Result: Returns an object with average salaries for each department.
+    // Function Name: getEmployeesJoinedAfterYear
+    // Input: employees, 2020
+    // Output: [ { id: 13, firstName: "Julie", ... }, { id: 18, firstName: "Romain", ... }, ... ]
+    // Expected Result: Returns an array of employees who joined after 2020.
 
-  function getUniqueDepartments(arr) {
-    const uniqueDepartments = [];
-  
-    for (let i = 0; i < arr.length; i++) {
-      if (!uniqueDepartments.includes(arr[i].department)) {
-        uniqueDepartments.push(arr[i].department);
-      }
+    function getEmployeesJoinedAfterYear(arr, yearx) {
+        const laDate = new Date(`${yearx}-12-31`);
+        let em_year;
+        const emp = []
+
+        for (let i = 0; i < arr.length; i++) {
+            em_year = new Date(arr[i].joinDate); 
+            if (em_year > laDate) {
+                emp.push(arr[i]);
+            }
+        }
+
+        return emp;
     }
-  
-    return uniqueDepartments;
-  }
-  
-  function getEmployeesByDepartment(arr, departmentName) {
-    const employeesInDept = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i].department === departmentName) {
-        employeesInDept.push(arr[i]);
-      }
-    }
-  
-    return employeesInDept;
-  }
-  
-  function calculateAverageSalaryByDepartment(arr) {
-    const departments = getUniqueDepartments(arr);
-    const result = {};
-  
-    for (let i = 0; i < departments.length; i++) {
-      const dept = departments[i];
-      const employeesInDept = getEmployeesByDepartment(arr, dept);
-      let salarySum = 0;
-  
-      for (let j = 0; j < employeesInDept.length; j++) {
-        salarySum += employeesInDept[j].salary;
-      }
-  
-      const average = salarySum / employeesInDept.length;
-      result[dept] = average;
-    }
-  
-    return result;
-  }
-  
-  
-console.log(calculateAverageSalaryByDepartment(employees));
+
+    console.log(getEmployeesJoinedAfterYear(employees, 2018));
